@@ -59,7 +59,7 @@ class GetHandler(BaseHTTPRequestHandler):
 
 if __name__ == '__main__':
     from BaseHTTPServer import HTTPServer
-    ip = '10.201.2.238'
+    ip =  '0.0.0.0'
     port = 9001
     server = HTTPServer((ip, port), GetHandler)
     print 'Starting server at http://' + ip + ":" + str(port)
