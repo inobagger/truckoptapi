@@ -2,6 +2,7 @@ from BaseHTTPServer import BaseHTTPRequestHandler
 import urlparse, json
 
 import users
+import algorithm
 
 class GetHandler(BaseHTTPRequestHandler):
 
@@ -46,11 +47,16 @@ class GetHandler(BaseHTTPRequestHandler):
                 retD["rutaActual"] = users.rutaActual()
             if(cmd == "recogidasPendientes"):
                 retD["recogidasPendientes"] = users.recogidasPendientes()
-
+            if(cmd == "mostrarRutas"):
+                retD["rutasPosibles"] = [algorithm.alg("Madrid", "Munich", "Paris|Frankfurt"),
+                                        algorithm.alg("Madrid", "Munich", "Lyon|Zurich"),
+                                        algorithm.alg("Madrid", "Munich", "Barcelona|Milan")]
         else:
             retD["driver"] = False
             if(cmd == "verPedidos"):
                 retD["pedidos"] = users.getPedidos(email)
+            if(cmd == "pasarCoords"):
+                pass
 
         #We return all the info
         self.wfile.write(json.dumps(retD))

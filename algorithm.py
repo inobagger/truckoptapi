@@ -6,10 +6,10 @@ import sys
 priceKm = 0.2
 priceHour = 12
 
-def algorithm(origin, destination, waypoints):
+def alg(origin, destination, waypoints):
 	key = "AIzaSyDLpmbzdP0zZPJsb5LxN6QxEefuSorjRkg"
 
-	print "Processing route from %s to %s stopping at %s..." % (origin, destination, waypoints)
+	#print "Processing route from %s to %s stopping at %s..." % (origin, destination, waypoints)
 	link = "https://maps.googleapis.com/maps/api/directions/json?origin="+origin+"&destination="+destination+"&key="+key
 	r = urllib2.urlopen(link.replace(" ","%20"))
 	a = json.loads(r.read())
@@ -46,10 +46,10 @@ def algorithm(origin, destination, waypoints):
 		#print ""
 	timeDifference = totalTime - tiempoOriginal
 	distanceDifference = totalKm - distanciaOriginal
-	print "Distancia / tiempo en ruta original: " + str(distanciaOriginal/1000) + " km / " + str(datetime.timedelta(seconds=tiempoOriginal))
-	print "Distancia / tiempo en ruta desviada: " + str(totalKm/1000) + " km / " + str(datetime.timedelta(seconds=totalTime))
-	print "Diferencia de distancia / tiempo: " + str(distanceDifference/1000) + " km / " + str(datetime.timedelta(seconds=timeDifference))
+	#print "Distancia / tiempo en ruta original: " + str(distanciaOriginal/1000) + " km / " + str(datetime.timedelta(seconds=tiempoOriginal))
+	#print "Distancia / tiempo en ruta desviada: " + str(totalKm/1000) + " km / " + str(datetime.timedelta(seconds=totalTime))
+	#print "Diferencia de distancia / tiempo: " + str(distanceDifference/1000) + " km / " + str(datetime.timedelta(seconds=timeDifference))
 	ganancia = 6000 - (totalKm/1000) *priceKm - totalTime/3600.0*priceHour
-	print "Ganancia neta: "+ str(ganancia) + "E"
-	print ""
-	return ganancia
+	#print "Ganancia neta: "+ str(ganancia) + "E"
+	3print ""
+	return {"From": origin, "To": destination, "Waypoints": waypoints, "Ganancia": ganancia}
