@@ -51,5 +51,5 @@ def alg(origin, destination, waypoints):
 	#print "Diferencia de distancia / tiempo: " + str(distanceDifference/1000) + " km / " + str(datetime.timedelta(seconds=timeDifference))
 	ganancia = 6000 - (totalKm/1000) *priceKm - totalTime/3600.0*priceHour
 	#print "Ganancia neta: "+ str(ganancia) + "E"
-	3print ""
+	
 	return {"From": origin, "To": destination, "Waypoints": waypoints, "Ganancia": ganancia}
