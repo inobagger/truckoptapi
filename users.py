@@ -19,12 +19,12 @@ def getDireccion(email):
 	return "Diagonal 203, Barcelona, ES"
 
 def getPedidos(email):
-	d = {"1": {"From": "Munich",
+	d = [{"From": "Munich",
 						"To": "Barcelona",
 						"Notifications": "[9/9/17 13:47] Picked up by driver;[9/9/17 15:59] 2 hours delay;[9/9/17 20:35] Delivered"},
-		"2": {"From": "Madrid",
+		{"From": "Madrid",
 						"To": "Valencia",
-						"Notifications": "[9/9/17 13:47] Picked up by driver;[9/9/17 15:59] 2 hours delay;[9/9/17 20:35] Delivered"}}
+						"Notifications": "[9/9/17 13:47] Picked up by driver;[9/9/17 15:59] 2 hours delay;[9/9/17 20:35] Delivered"}]
 	return d
 
 def isDriver(email):
